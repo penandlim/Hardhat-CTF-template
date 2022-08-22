@@ -9,6 +9,10 @@ npm run install
 ```shell
 npx hardhat compile
 ```
+Using forge:
+```shell
+forge build
+```
 
 ### Using python
 My preferred installation of python is to use pyenv. Then use mkvenv script to set your venv in your folder.
