@@ -11,10 +11,16 @@ const { expect } = chai
 chai.use(solidity)
 
 async function main() {
+  // Load the first signer
+  // Under hardhat network, this will be pre-loaded by hardhat
+  // If running against CTF network, it is the first account in the list in hardhat.config.ts
   const account = (await ethers.getSigners())[0]
   console.log(`account: ${account.address}`)
 
-  let setup: Setup;
+  // ***********************************************************
+  // Deploy any setup contracts and store ethers.js contract instances
+
+  let setup: Setup
 
   // Load the contract from an address if we are running against CTF network
   // If not, deploy it for testing locally (hardhat network)
@@ -24,8 +30,9 @@ async function main() {
     setup = await (await ethers.getContractFactory("Setup")).deploy()
   }
 
+  // ***********************************************************
   // Do stuff here
-  // console.log(await setup.lockbox2())
+  console.log(await setup.isSolved())
 }
 
 // We recommend this pattern to be able to use async/await everywhere
