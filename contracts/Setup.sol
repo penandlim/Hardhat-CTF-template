@@ -1,17 +1,18 @@
 // SPDX-License-Identifier: UNLICENSED
 
-pragma solidity 0.7.6;
+pragma solidity 0.8.15;
 
-import "./Challenge.sol";
+import "./Lockbox2.sol";
 
 contract Setup {
-    Challenge public immutable challenge;
 
+    Lockbox2 public lockbox2;
+    
     constructor() {
-        challenge = new Challenge();
+        lockbox2 = new Lockbox2();
     }
-
+    
     function isSolved() external view returns (bool) {
-        return challenge.bestScore() >= 16;
+        return !lockbox2.locked();
     }
 }
