@@ -2,7 +2,7 @@ import chai from "chai"
 import dotenv from "dotenv"
 import { solidity } from "ethereum-waffle"
 import { ethers, network } from "hardhat"
-import { Challenge, Lockbox2, Lockbox2__factory, Setup } from "../build/typechain"
+import { Setup } from "../build/typechain"
 import { ensureEnvVar } from "../test/utils"
 
 dotenv.config()

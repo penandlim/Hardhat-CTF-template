@@ -1,18 +1,18 @@
-// SPDX-License-Identifier: UNLICENSED
+// SPDX-License-Identifier: MIT
 
 pragma solidity 0.8.15;
 
-import "./Lockbox2.sol";
+// Replace this file with CTF challenge contracts
 
 contract Setup {
 
-    Lockbox2 public lockbox2;
+    bool _solved;
     
     constructor() {
-        lockbox2 = new Lockbox2();
+        _solved = true;
     }
     
     function isSolved() external view returns (bool) {
-        return !lockbox2.locked();
+        return _solved;
     }
 }
